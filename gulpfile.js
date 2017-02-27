@@ -6,16 +6,18 @@ const
   source      = require('vinyl-source-stream'),
   gutil       = require('gulp-util'),
   babelify    = require('babelify'),
+  wpconf      = require('./webpack.config'),
+  webpack     = require('webpack'),
+  gulpWebpack = require('gulp-webpack'),
   clean       = require('gulp-clean');
 
 const dependencies = [
-  'react',
-  'react-dom'
+  'angular'
 ];
 
 
 gulp.task('clean', () => {
-  gulp.src(['bundle', 'dest', 'web'])
+  gulp.src(['bundle', 'dest', 'web', 'dist'])
     .pipe(clean());
 });
 
@@ -24,12 +26,13 @@ gulp.task('bundle', () => {
   let appBundler = browserify({
     entries: [
       'src/Login1.jsx',
-      'src/Login2.jsx'
+      'src/LoginComponent.jsx'
     ],
     debug: true
   });
 
   dependencies.forEach((dep) => {
+    console.log('dep', dep);
     appBundler.external(dep);
   });
 
@@ -52,4 +55,11 @@ gulp.task('vendors', () => {
     .on('error', gutil.log)
     .pipe(source('vendors.js'))
     .pipe(gulp.dest('./web/js/'));
+});
+
+gulp.task('webpack', () => {
+  return gulp.src([
+      'src/LoginComponent.jsx'])
+    .pipe(gulpWebpack(wpconf, webpack))
+    .pipe(gulp.dest('dist/'));
 });

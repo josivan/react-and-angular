@@ -4,12 +4,19 @@
     <title>Hello React</title>
     <meta charset="utf-8">
   </head>
-  <body>
+  <body ng-app="ngang">
     <div id="app">
       <!-- my app renders here -->
     </div>
     <div id="app2"></div>
+    
+    <!--
     <script src="web/js/vendors.js"></script>
-    <script src="web/js/bundle.js"></script>
+    <script type="text/javascript" src="node_modules/angular/angular.js"></script>
+    <script type="text/javascript" src="node_modules/ngreact/ngReact.js"></script>
+    <script src="app_client/ngang.js"></script>
+    -->
+    <script src="dist/ngang.bundle.js"></script>
+    <script src="dist/LoginComponent.bundle.js"></script>
   </body>
 </html>
