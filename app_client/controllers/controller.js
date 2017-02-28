@@ -8,6 +8,9 @@
       data: 'A single data',
       clicked: () => {
         console.log('One click on Angular Controller');
+      },
+      $onInit: () => {
+        console.log('on init in controller');
       }
     });
   }
