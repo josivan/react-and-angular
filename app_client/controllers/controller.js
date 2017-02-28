@@ -5,7 +5,10 @@
 
   function Controller() {
     angular.extend(this, {
-
+      data: 'A single data',
+      clicked: () => {
+        console.log('One click on Angular Controller');
+      }
     });
   }
 

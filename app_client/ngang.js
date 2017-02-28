@@ -1,5 +1,3 @@
-import LoginComponent from '../src/LoginComponent.jsx';
-
 (function() {
   'use strict';
 
@@ -8,9 +6,8 @@ import LoginComponent from '../src/LoginComponent.jsx';
   angular
     .module('ngang', [
       'react',
-      'ngang.directives',
       'ngang.controllers',
-    ])
-    .value('LoginComponent', LoginComponent);
+      'ngang.components'
+    ]);
 
 })();
