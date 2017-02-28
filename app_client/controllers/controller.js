@@ -10,7 +10,7 @@
   }
 
   angular
-    .module('ngang.controller', [])
+    .module('ngang.controllers', [])
     .controller('Controller', Controller);
 
 })();

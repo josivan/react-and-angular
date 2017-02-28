@@ -8,7 +8,9 @@ import LoginComponent from '../src/LoginComponent.jsx';
   angular
     .module('ngang', [
       'react',
-      'ngang.controller'
+      'ngang.directives',
+      'ngang.controllers',
     ])
     .value('LoginComponent', LoginComponent);
+
 })();
