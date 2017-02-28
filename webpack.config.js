@@ -1,11 +1,19 @@
 const 
+  glob      = require('glob'),
   path      = require('path'),
   webpack   = require('webpack');
 
 const config = {
+  // context: __dirname + '/app_client',
   entry: {
-    ngang: './app_client/ngang.js',
-    LoginComponent: './src/LoginComponent.jsx'
+    app_client: glob.sync('./app_client/**/*.js'),
+    jsx: glob.sync('./src/**/*.jsx'),
+    vendor: [
+      'angular',
+      'react',
+      'react-dom',
+      'ngReact',
+    ]
   },
   output: {
     // path: path.resolve(__dirname, "public"),
@@ -27,7 +35,11 @@ const config = {
         presets: ['es2015', 'react']
       }
     }]
-  }
+  },
+  plugins: [
+    new webpack.optimize.CommonsChunkPlugin(/* chunkName= */"vendor", /* filename= */"vendor.bundle.js")
+    // new webpack.optimize.UglifyJsPlugin()
+  ]
 };
 
 module.exports = config;

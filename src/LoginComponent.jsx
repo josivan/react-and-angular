@@ -16,4 +16,5 @@ class LoginComponent extends React.Component {
   }
 }
 
-ReactDOM.render(<LoginComponent />, document.getElementById('app2'));
+// ReactDOM.render(<LoginComponent />, document.getElementById('app2'));
+export default LoginComponent;

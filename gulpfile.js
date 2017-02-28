@@ -9,6 +9,7 @@ const
   wpconf      = require('./webpack.config'),
   webpack     = require('webpack'),
   gulpWebpack = require('gulp-webpack'),
+  wpstream    = require('webpack-stream'),
   clean       = require('gulp-clean');
 
 const dependencies = [
@@ -58,8 +59,7 @@ gulp.task('vendors', () => {
 });
 
 gulp.task('webpack', () => {
-  return gulp.src([
-      'src/LoginComponent.jsx'])
-    .pipe(gulpWebpack(wpconf, webpack))
+  return gulp.src('app_client/ngang.js')
+    .pipe(wpstream(wpconf, webpack))
     .pipe(gulp.dest('dist/'));
 });
