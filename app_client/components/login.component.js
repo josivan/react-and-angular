@@ -18,8 +18,17 @@ import TestComponent from './TestComponent';
       console.log('no template');
       console.log('$element', $element);
       console.log('$attrs', $attrs);
-      const lcp2 = React.createElement(TestComponent);
+      const lcp2 = React.createElement(TestComponent,
+      {
+        controller: {
+          clickOnController: () => {
+            console.info('a method in controller');
+          }
+        }
+      });
+      // const lcp2 = React.createFactory(TestComponent);
       console.log('lcp2', lcp2);
+      //lcp2.controller();
       ReactDOM.render(lcp2, $element[0]);
     },
     controller: 'Controller'
