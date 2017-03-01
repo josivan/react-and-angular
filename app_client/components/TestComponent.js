@@ -1,11 +1,12 @@
 import React from 'react';
 
 var TestComponent = React.createClass({
-  aMethod: function() {
+  josivan: function() {
     console.info('aMethod was called');
   },
   propTypes: {
-    controller: React.PropTypes.object.isRequired
+    consoleLog: React.PropTypes.object.isRequired,
+    message: React.PropTypes.string.isRequired
   },
   render: function() {
     console.info('render was called');
@@ -13,7 +14,7 @@ var TestComponent = React.createClass({
     return (
       <div>
         <h1>Now using JSX</h1>
-        <button onClick={this.controller.clickOnController()}>A button</button>
+        <button onClick={this.props.consoleLog.clickOnController}>{this.props.message}</button>
       </div>
     );
   }
