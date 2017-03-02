@@ -6,31 +6,17 @@ import TestComponent from './TestComponent';
   'use strict';
 
   const MyLoginComponent = {
-      /*
-    template: () => {
-      return "<h1>Angular Component with {{$ctrl.data}}</h1>";
-      const lcp2 = React.createFactory(LoginComponent2);
-      console.log('lcp2', lcp2);
-      return lcp2.render();
-    },
-      */
     template: ($element, $attrs) => {
-      console.log('no template');
-      console.log('$element', $element);
-      console.log('$attrs', $attrs);
-      const lcp2 = React.createElement(TestComponent, 
+      const rComp = React.createElement(TestComponent, 
       {
         consoleLog: {
           clickOnController: () => {
             console.info('a method in controller');
           }
         },
-        message: 'boa magrão'
+        message: 'Button Text'
       });
-      // const lcp2 = React.createFactory(TestComponent);
-      console.log('lcp2', lcp2);
-      //lcp2.controller();
-      ReactDOM.render(lcp2, $element[0]);
+      ReactDOM.render(rComp, $element[0]);
     },
     controller: 'Controller'
   };
